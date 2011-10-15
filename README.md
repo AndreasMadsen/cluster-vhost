@@ -27,7 +27,7 @@ cluster('./app')
   .listen(3000);
 ```
 
-**Fourth: edit you hosts file**
+**Fourth: edit you hosts file**<br>
 *You will need to edit you [hosts](http://en.wikipedia.org/wiki/Hosts_file) file to redirect example.org to you own computer.*
 
 First open the file in you text editor.
