@@ -8,8 +8,7 @@
   "author": "Andreas Madsen <amwebdk@gmail.com>",
   "main": "vhost-plugin.js",
   "dependencies": {
-      "http-proxy": ">= 0.7.3",
-      "nodetalk": ">= 0.7.1"
+      "http-proxy": ">= 0.7.3"
   },
   "engines": { "node": "0.4.x || 0.5.x" }
 }
