@@ -30,10 +30,12 @@ cluster('./app')
 **Fourth: edit you hosts file**
 
 You will need to edit you [hosts](http://en.wikipedia.org/wiki/Hosts_file) file to redirect example.org to you own computer.
-First open the file in you text editor.
-On mac and linux you will find a file named `hosts` in  `/private/etc/`.
-On windows you will find a file named `hosts` in `C:\Windows\system32\drivers\etc\hosts`.
 
+First open the file in you text editor.
+
+On mac and linux you will find a file named `hosts` in  `/private/etc/`.
+
+On windows you will find a file named `hosts` in `C:\Windows\system32\drivers\etc\hosts`.
 
 After the line `localhost 127.0.0.1` create a new line with the text `example.org 127.0.0.1`.
 The result will be:
