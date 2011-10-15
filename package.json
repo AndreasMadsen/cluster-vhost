@@ -1,0 +1,15 @@
+{
+  "name": "cluster-vhost",
+  "description": "virtual host management using cluster",
+  "keywords": ["vhost", "virtual", "host", "domain", "name"],
+  "version": "0.1.0",
+  "homepage": "http://github.com/AndreasMadsen/cluster-vhost",
+  "repository": "git://github.com/AndreasMadsen/cluster-vhost.git",
+  "author": "Andreas Madsen <amwebdk@gmail.com>",
+  "main": "vhost-plugin.js",
+  "dependencies": {
+      "http-proxy": ">= 0.7.3",
+      "nodetalk": ">= 0.7.1"
+  },
+  "engines": { "node": "0.4.x || 0.5.x" }
+}
