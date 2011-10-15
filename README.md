@@ -45,7 +45,7 @@ example.org 127.0.0.1
 
 **Fifth: open you browser**
 
-You can now access you site on `http://example.org:8001`.
+You can now access you site on `http://example.org:8001`.<br>
 In order to access you site on `http://example.org`, you will need to set you firewall up to redirect from port `8001` to port `80`.
 
 ##Configure the proxy-server
