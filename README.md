@@ -5,16 +5,19 @@
 ## Use cluster-vhost
 
 **First: install [cluster](http://learnboost.github.com/cluster/)**
+
 ```shell
 npm install cluster
 ```
 
 **Secound: install cluster-vhost**
+
 ```shell
 npm install cluster-vhost
 ```
 
 **Third: use plugin**
+
 ```javascript
 var cluster = require('cluster');
 require('cluster-vhost');
@@ -33,6 +36,7 @@ On windows you will find a file named `hosts` in `C:\Windows\system32\drivers\et
 
 After the line `localhost 127.0.0.1` create a new line with the text `example.org 127.0.0.1`.
 The result will be:
+
 ```javascript
 localhost   127.0.0.1
 example.org 127.0.0.1
