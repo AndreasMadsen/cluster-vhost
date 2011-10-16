@@ -70,6 +70,7 @@ In this case you will most likely place it in `~/Sites/`.
 Please wait, the code is made, but the documentation is not ...
 
 ##Thanks to
+
 * cluster (LearnBoost) https://github.com/learnboost/cluster
 
 ##License
