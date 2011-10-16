@@ -2,6 +2,12 @@
 
 > cluster-vhost is a plugin to [cluster](http://learnboost.github.com/cluster/) there allow you to use as many virtual host domains as you which.
 
+## Features
+ - Ridiculously easy to use
+ - Support http to http proxy
+ - Support https to http proxy
+ - transparent proxy remoteAdress
+
 ## Use cluster-vhost
 
 **First: install**
