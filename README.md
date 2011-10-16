@@ -48,8 +48,10 @@ example.org 127.0.0.1
 You can now access you site on `http://example.org:8001`.<br>
 In order to access you site on `http://example.org`, you will need to set you firewall up to redirect from port `8001` to port `80`.
 
-##Configure the proxy-server<br>
-*You do not need to create a configuration file, if none is found The module Will use default values*
+##Configure the proxy-server
+
+###Creating the file<br>
+*You do not need to create a configuration file, if none is found The module will use default values.*
 
 `cluster-vhost` can be configured with a `config.json` file. The first step i to create it the in the right directory. This module will searce for `config.json` in its own directory and then go up in the folder tree until it find a `config.json` file.
 
@@ -63,6 +65,9 @@ For instance you may have all you sites in `~/Sites/`, it was also there you ins
 ```
 
 In this case you will most likely place it in `~/Sites/`. 
+
+###Writeing the file
+Please wait, the code is made, but the documentation is not ...
 
 ##Thanks to
 * cluster (LearnBoost) https://github.com/learnboost/cluster
