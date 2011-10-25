@@ -6,7 +6,7 @@
   "homepage": "http://github.com/AndreasMadsen/cluster-vhost",
   "repository": "git://github.com/AndreasMadsen/cluster-vhost.git",
   "author": "Andreas Madsen <amwebdk@gmail.com>",
-  "main": "vhost-plugin.js",
+  "main": "./lib/plugin.js",
   "dependencies": {
       "http-proxy": ">= 0.7.3"
   },
