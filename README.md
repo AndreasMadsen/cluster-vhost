@@ -26,7 +26,7 @@ npm install cluster-vhost
 
 ```javascript
 var cluster = require('cluster');
-require('cluster-vhost');
+    cluster.vhost = require('cluster-vhost');
 
 cluster('./app')
   .use(cluster.vhost('example.org'))
@@ -58,7 +58,7 @@ to set you firewall up to redirect from port `8001` to port `80`.
 ##Configure the proxy-server
 
 ###Creating the file<br>
-*You do not need to create a configuration file, if none is found The module will use default values.*
+*You do not need to create a configuration file, if none is found the module will use default values.*
 
 `cluster-vhost` can be configured with a `config.json` file. The first
 step i to create it the in the right directory. This module will searce
@@ -77,7 +77,27 @@ you installed `cluster` and `cluster-vhost` which means you have a
 ~/config.json
 ```
 
-In this case you will most likely place it in `~/Sites/`. 
+In this case you will most likely place it in `~/Sites/`.
+
+####Alternativ configure method
+
+Insted of search for the `config.json` you can also configure the `proxy-server` by using the `module.config()`
+method.
+
+`module.config()` method accept a filepath or an object.
+* If a filepath is given it must contain a valid json string.
+* If a object is given it must contain a valid json object.
+
+Because this function is blocking you should only place it along with the `require` method with is also blocking.
+
+```javascript
+var cluster = require("cluster");
+    cluster.vhost = require("cluster-vhost").config("./vhost.config");
+
+cluster('./app')
+  .use(cluster.vhost('example.org'))
+  .listen(3000);
+```
 
 ###Writeing the file
 
