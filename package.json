@@ -1,14 +1,33 @@
 {
   "name": "cluster-vhost",
   "description": "virtual host management using cluster",
-  "keywords": ["vhost", "virtual", "host", "domain", "name"],
   "version": "0.1.0",
-  "homepage": "http://github.com/AndreasMadsen/cluster-vhost",
-  "repository": "git://github.com/AndreasMadsen/cluster-vhost.git",
   "author": "Andreas Madsen <amwebdk@gmail.com>",
-  "main": "./lib/plugin.js",
-  "dependencies": {
-      "http-proxy": ">= 0.7.3"
+  "contributors : [
+    { "name": "Andreas Madsen", "email": "amwebdk@gmail.com"}
+  ],
+  "repository" : {
+    "type": "git",
+    "url": "git://github.com/AndreasMadsen/cluster-vhost.git"
   },
-  "engines": { "node": "0.4.x || 0.5.x" }
+  "keywords": [
+    "vhost",
+    "virtual",
+    "host",
+    "domain",
+    "name"
+  ],
+  "dependencies": {
+    "http-proxy": ">= 0.7.3"
+  },
+  "devDependencies": {
+    "vows": ">= 0.5.11"
+  },
+  "main": "./lib/plugin.js",
+  "scripts": {
+    "test": "vows test/* --spec"
+  },
+  "engines": {
+    "node": "0.4.x || 0.5.x"
+  }
 }
