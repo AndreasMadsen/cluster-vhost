@@ -10,14 +10,14 @@
 
 ##How to use
 
-**Install: **<br>
+**Install:**
 
 ```shell
 npm install cluster
 npm install cluster-vhost
 ```
 
-**Using: **<br>
+**Using:**
 
 ```javascript
 var cluster = require('cluster');
