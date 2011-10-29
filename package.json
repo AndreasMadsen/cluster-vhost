@@ -3,7 +3,7 @@
   "description": "virtual host management using cluster",
   "version": "0.1.1",
   "author": "Andreas Madsen <amwebdk@gmail.com>",
-  "contributors : [
+  "contributors" : [
     { "name": "Andreas Madsen", "email": "amwebdk@gmail.com"}
   ],
   "repository" : {
