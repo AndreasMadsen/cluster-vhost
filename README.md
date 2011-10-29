@@ -47,7 +47,7 @@ Now you are ready to install `cluster-vhost`
 npm install cluster-vhost
 ```
 
-**Third: use plugin**
+**Third: use plugin**<br>
 Create a server.js file where, in this file you require both `cluster` and `cluster-vhost`.
 To setup vhost use the `cluster.vhost` function there take the hostname as its single argument.
 
