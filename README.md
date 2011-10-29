@@ -8,21 +8,48 @@
  - Support https to http proxy
  - transparent proxy remoteAdress
 
-## Use cluster-vhost
+##How to use
+
+**Install: **
+
+```shell
+npm install cluster
+npm install cluster-vhost
+```
+
+**Using: **
+
+```javascript
+var cluster = require('cluster');
+    cluster.vhost = require('cluster-vhost');
+
+cluster('./app')
+  .use(cluster.vhost('example.org'))
+  .on("vhost configured", function () {
+    console.log("You can now access your app, by opening http://example.org:8001 in you browser");
+  })
+  .listen(3000);
+```
+
+## Detailed use instructions
 
 **First: install**
+You will need to install `cluster` if you haven't allready done so
 
 ```shell
 npm install cluster
 ```
 
 **Secound: install cluster-vhost**
+Now you are ready to install `cluster-vhost`
 
 ```shell
 npm install cluster-vhost
 ```
 
 **Third: use plugin**
+Create a server.js file where, in this file you require both `cluster` and `cluster-vhost`.
+To setup vhost use the `cluster.vhost` function there take the hostname as its single argument.
 
 ```javascript
 var cluster = require('cluster');
@@ -54,6 +81,21 @@ example.org 127.0.0.1
 You can now access you site on `http://example.org:8001`.<br>
 In order to access you site on `http://example.org`, you will need
 to set you firewall up to redirect from port `8001` to port `80`.
+
+##When is the proxy-server reaady
+When using `cluster-vhost`, `cluster` will emit a `vhost configured` event when everything is running and ready.
+
+```javascript
+var cluster = require('cluster');
+    cluster.vhost = require('cluster-vhost');
+
+cluster('./app')
+  .use(cluster.vhost('example.org'))
+  .on("vhost configured", function () {
+    console.log("cluster-vhost is ready");
+  })
+  .listen(3000);
+```
 
 ##Configure the proxy-server
 
