@@ -1,7 +1,7 @@
 {
   "name": "cluster-vhost",
   "description": "virtual host management using cluster",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "author": "Andreas Madsen <amwebdk@gmail.com>",
   "contributors" : [
     { "name": "Andreas Madsen", "email": "amwebdk@gmail.com"}
@@ -28,6 +28,6 @@
     "test": "vows test/* --spec"
   },
   "engines": {
-    "node": "0.4.x || 0.5.x"
+    "node": "0.4.x"
   }
 }
