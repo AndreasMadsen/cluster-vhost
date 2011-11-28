@@ -2,6 +2,19 @@
 
 > cluster-vhost is a plugin to [cluster](http://learnboost.github.com/cluster/) there allow you to use as many virtual host domains as you which.
 
+### Support for node 0.6.x
+> This module is currently only made for node 0.4.x, since there in 0.6.x was created a native cluster module.
+>
+> However the native cluster module isn't sophisticated enought to support easy vhost setup.
+> I have made a [pull request](https://github.com/joyent/node/pull/2038) to node.js there make the native cluster module
+> a real module in my opinion. But since it contains API changes it won't be pulled in node.js version 0.6.x.
+> Domain support is also a part of the node.js 0.8.x milestone, however I do not know what this will become.
+> So as it seams now cluster-vhost won't support the latest version of node.js until 0.8.x, and at that point I will need
+> to read about what domain support actually is.
+>
+> **However if you have a geat thought about how to support vhost now, please tell me**.<br>
+> Oh, and I have not got any comment on my cluster 2.0 [pull request](https://github.com/joyent/node/pull/2038), so please support me by give me some feedback on it.  
+
 ## Features
  - Ridiculously easy to use
  - Support http to http proxy
