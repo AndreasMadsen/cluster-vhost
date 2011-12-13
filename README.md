@@ -19,7 +19,7 @@
  - Ridiculously easy to use
  - Support http to http proxy
  - Support https to http proxy
- - transparent proxy remoteAdress
+ - transparent proxy remoteAddress
 
 ##How to use
 
@@ -39,21 +39,21 @@ var cluster = require('cluster');
 cluster('./app')
   .use(cluster.vhost('example.org'))
   .on("vhost configured", function () {
-    console.log("You can now access your app, by opening http://example.org:8001 in you browser");
+    console.log("You can now access your app, by opening http://example.org:8001 in your browser");
   })
   .listen(3000);
 ```
 
-## Detailed use instructions
+## Detailed instructions
 
 **First: install**<br>
-You will need to install `cluster` if you haven't allready done so
+You will need to install `cluster` if you haven't already done so
 
 ```shell
 npm install cluster
 ```
 
-**Secound: install cluster-vhost**<br>
+**Second: install cluster-vhost**<br>
 Now you are ready to install `cluster-vhost`
 
 ```shell
@@ -62,7 +62,7 @@ npm install cluster-vhost
 
 **Third: use plugin**<br>
 Create a server.js file where, in this file you require both `cluster` and `cluster-vhost`.
-To setup vhost use the `cluster.vhost` function there take the hostname as its single argument.
+To setup vhost use the `cluster.vhost` function which takes the hostname as it's single argument.
 
 ```javascript
 var cluster = require('cluster');
@@ -73,13 +73,13 @@ cluster('./app')
   .listen(3000);
 ```
 
-**Fourth: edit you hosts file**<br>
+**Fourth: edit your hosts file**<br>
 *You will need to edit you [hosts](http://en.wikipedia.org/wiki/Hosts_file) file to redirect example.org to you own computer.*
 
 First open the file in you text editor.
 
 * On mac and linux you will find a file named `hosts` in  `/private/etc/`.
-* On windows you will find a file named `hosts` in `C:\Windows\system32\drivers\etc\hosts`.
+* On windows you will find a file named `hosts` in `%WINDIR%\system32\drivers\etc\hosts`.
 
 After the line `localhost 127.0.0.1` create a new line with the text `example.org 127.0.0.1`.
 The result will be:
@@ -89,11 +89,11 @@ localhost   127.0.0.1
 example.org 127.0.0.1
 ```
 
-**Fifth: open you browser**
+**Fifth: open your browser**
 
-You can now access you site on `http://example.org:8001`.<br>
-In order to access you site on `http://example.org`, you will need
-to set you firewall up to redirect from port `8001` to port `80`.
+You can now access your site on `http://example.org:8001`.<br>
+In order to access your site on `http://example.org`, you will need
+to set your firewall up to redirect from port `8001` to port `80`.
 
 ##When is the proxy-server reaady
 When using `cluster-vhost`, `cluster` will emit a `vhost configured` event when everything is running and ready.
@@ -116,14 +116,13 @@ cluster('./app')
 *You do not need to create a configuration file, if none is found the module will use default values.*
 
 `cluster-vhost` can be configured with a `config.json` file. The first
-step i to create it the in the right directory. This module will searce
+step is to create it the in the right directory. This module will search
 for `config.json` in its own directory and then go up in the folder tree
-until it find a `config.json` file.
+until it finds a `config.json` file.
 
-For instance you may have all you sites in `~/Sites/`, it was also there
-you installed `cluster` and `cluster-vhost` which means you have a
-`node_modules` folder contaning a `cluster` and a `cluster-vhost` folder.
-`cluster-vhost` will then search for `config.json` in:
+Example: if you have your websites in `~/Sites/` with `cluster` and `cluster-vhost`
+with in `~/Sites/node_modules`. `cluster-vhost` will search for `config.json` in
+the following directories:
 
 ```text
 ~/Sites/node_modules/cluster-vhost/config.json
@@ -132,14 +131,14 @@ you installed `cluster` and `cluster-vhost` which means you have a
 ~/config.json
 ```
 
-In this case you will most likely place it in `~/Sites/`.
+If you're using OSX, then in most cases you can assume search path will be `~/Sites/`.
 
-####Alternativ configure method
+####Alternative configuration method
 
-Insted of search for the `config.json` you can also configure the `proxy-server` by using the `module.config()`
+Instead of searching for  `config.json` you can also configure the `proxy-server` by using the `module.config()`
 method.
 
-`module.config()` method accept a filepath or an object.
+`module.config()` method accepts a filepath or an object.
 * If a filepath is given it must contain a valid json string.
 * If a object is given it must contain a valid json object.
 
@@ -154,9 +153,9 @@ cluster('./app')
   .listen(3000);
 ```
 
-###Writeing the file
+###Writing the file
 
-Because another `node-module` may also use you a config.json file,
+Because another `node-module` may also use your a `config.json` file,
 all `cluster-vhost` properties should be placed in a `vhost` object.
 There are several properties you can set, all will fallback to its
 default value if not set.
