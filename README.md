@@ -86,6 +86,7 @@ Instead of searching for `config.json` you can also configure the `proxy-server`
 method.
 
 `vhost.config()` method accepts a filepath or an object.
+
 * If a filepath is given it must contain a valid json string.
 * If a object is given it must contain a valid json object.
 
