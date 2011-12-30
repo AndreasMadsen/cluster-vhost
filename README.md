@@ -1,7 +1,7 @@
 #cluster-vhost
 
-> cluster-vhost is a module there allow you to use as many virtual host domains as you which.
-> It is often used in combination with the [cluster](http://nodejs.org/docs/latest/api/cluster.html) module but it is not required.
+> cluster-vhost is a module there allow you to use as many virtual host domains as you which. It is often used in combination with the [cluster](http://nodejs.org/docs/latest/api/cluster.html) module but it is not required.
+>
 > This module require node 0.7.0-pre or higher since the 0.6.0 cluster module isn't sophisticated enough.
 
 ## Features
