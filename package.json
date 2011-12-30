@@ -1,7 +1,7 @@
 {
   "name": "cluster-vhost",
-  "description": "virtual host management using cluster",
-  "version": "0.2.5",
+  "description": "virtual host setup using native cluster",
+  "version": "1.0.0",
   "author": "Andreas Madsen <amwebdk@gmail.com>",
   "contributors" : [
     { "name": "Andreas Madsen", "email": "amwebdk@gmail.com"}
@@ -18,16 +18,12 @@
     "name"
   ],
   "dependencies": {
-    "http-proxy": ">= 0.7.3"
+    "http-proxy": ">= 0.8.0",
+    "childtalk": ">= 0.0.1",
+    "configme": ">= 0.0.1"
   },
-  "devDependencies": {
-    "vows": ">= 0.5.11"
-  },
-  "main": "./lib/plugin.js",
-  "scripts": {
-    "test": "vows test/* --spec"
-  },
+  "main": "./lib/setup.js",
   "engines": {
-    "node": "0.4.x"
+    "node": ">= 0.7.x"
   }
 }

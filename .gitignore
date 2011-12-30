@@ -3,12 +3,5 @@
 *.swp
 *.tmp
 
-# Log files
-npm-debug.log
-test/*.log
-
 # All node modules
 node_modules/
-
-# All tcp sockets
-sock/
