@@ -1,16 +1,8 @@
 #cluster-vhost
 
-> cluster-vhost is a plugin to [cluster](http://learnboost.github.com/cluster/) there allow you to use as many virtual host domains as you which.
-
-### Support for node 0.6.x
-> This module is currently only made for node 0.4.x, since there in 0.6.x was created a native cluster module.
->
-> However the native cluster module isn't sophisticated enought to support easy vhost setup.
-> I have made a [pull request](https://github.com/joyent/node/pull/2038) to node.js there make the native cluster module
-> a real module in my opinion. But since it contains API changes it won't be pulled in node.js version 0.6.x.
-> So as it seams now cluster-vhost won't support the latest version of node.js until 0.8.x.
->
-> **However if you have a geat thought about how to support vhost now, please tell me**.<br>
+> cluster-vhost is a module there allow you to use as many virtual host domains as you which.
+> It is often used in combination with the [cluster](http://nodejs.org/docs/latest/api/cluster.html) module but it is not required.
+> This module require node 0.7.0-pre or higher since the 0.6.0 cluster module isn't sophisticated enough.
 
 ## Features
  - Ridiculously easy to use
@@ -23,54 +15,35 @@
 **Install:**
 
 ```shell
-npm install cluster
 npm install cluster-vhost
 ```
 
-**Using:**
+**Use:**
 
 ```javascript
-var cluster = require('cluster');
-    cluster.vhost = require('cluster-vhost');
+var cluster = require('cluster'),
+    vhost = require('cluster-vhost');
+    
+vhost.use('example.org');
+vhost.on('done', function () {
+	console.log("You can now access your app, by opening http://example.org:8001 in your browser");
+});
+vhost.on('error', function (err) {
+	console.error('not good');
+	throw err;
+});
 
-cluster('./app')
-  .use(cluster.vhost('example.org'))
-  .on("vhost configured", function () {
-    console.log("You can now access your app, by opening http://example.org:8001 in your browser");
-  })
-  .listen(3000);
+//Start cluster
+cluster.autoFork();
 ```
 
-## Detailed instructions
+**Done:**
+You can now access your site on `http://example.org:8001`.<br>
+In order to access your site on `http://example.org`, you will need
+to configure your firewall to redirect from port `8001` to port `80`.
 
-**First: install**<br>
-You will need to install `cluster` if you haven't already done so
+##Configure host file
 
-```shell
-npm install cluster
-```
-
-**Second: install cluster-vhost**<br>
-Now you are ready to install `cluster-vhost`
-
-```shell
-npm install cluster-vhost
-```
-
-**Third: use plugin**<br>
-Create a server.js file where, in this file you require both `cluster` and `cluster-vhost`.
-To setup vhost use the `cluster.vhost` function which takes the hostname as it's single argument.
-
-```javascript
-var cluster = require('cluster');
-    cluster.vhost = require('cluster-vhost');
-
-cluster('./app')
-  .use(cluster.vhost('example.org'))
-  .listen(3000);
-```
-
-**Fourth: edit your hosts file**<br>
 *You will need to edit you [hosts](http://en.wikipedia.org/wiki/Hosts_file) file to redirect example.org to you own computer.*
 
 First open the file in you text editor.
@@ -86,27 +59,6 @@ localhost   127.0.0.1
 example.org 127.0.0.1
 ```
 
-**Fifth: open your browser**
-
-You can now access your site on `http://example.org:8001`.<br>
-In order to access your site on `http://example.org`, you will need
-to set your firewall up to redirect from port `8001` to port `80`.
-
-##When is the proxy-server reaady
-When using `cluster-vhost`, `cluster` will emit a `vhost configured` event when everything is running and ready.
-
-```javascript
-var cluster = require('cluster');
-    cluster.vhost = require('cluster-vhost');
-
-cluster('./app')
-  .use(cluster.vhost('example.org'))
-  .on("vhost configured", function () {
-    console.log("cluster-vhost is ready");
-  })
-  .listen(3000);
-```
-
 ##Configure the proxy-server
 
 ###Creating the file<br>
@@ -117,9 +69,9 @@ step is to create it the in the right directory. This module will search
 for `config.json` in its own directory and then go up in the folder tree
 until it finds a `config.json` file.
 
-Example: if you have your websites in `~/Sites/` with `cluster` and `cluster-vhost`
-with in `~/Sites/node_modules`. `cluster-vhost` will search for `config.json` in
-the following directories:
+Example: if you have your websites in `~/Sites/` and typed `npm install cluster-vhost`
+here, you will have it in a `node_modules` folder. `cluster-vhost` will then search for
+a `config.json` file in the following directories:
 
 ```text
 ~/Sites/node_modules/cluster-vhost/config.json
@@ -128,26 +80,24 @@ the following directories:
 ~/config.json
 ```
 
-If you're using OSX, then in most cases you can assume search path will be `~/Sites/`.
-
 ####Alternative configuration method
 
-Instead of searching for  `config.json` you can also configure the `proxy-server` by using the `module.config()`
+Instead of searching for `config.json` you can also configure the `proxy-server` by using the `vhost.config()`
 method.
 
-`module.config()` method accepts a filepath or an object.
+`vhost.config()` method accepts a filepath or an object.
 * If a filepath is given it must contain a valid json string.
 * If a object is given it must contain a valid json object.
 
-Because this function is blocking you should only place it along with the `require` method with is also blocking.
-
 ```javascript
-var cluster = require("cluster");
-    cluster.vhost = require("cluster-vhost").config("./vhost.config");
+var cluster = require("cluster"),
+	vhost = require("cluster-vhost");
 
-cluster('./app')
-  .use(cluster.vhost('example.org'))
-  .listen(3000);
+vhost.config('./config.json');
+vhost.use('example.org');
+
+//Start cluster
+cluster.autoFork();
 ```
 
 ###Writing the file
@@ -180,7 +130,7 @@ default value if not set.
         "ssl" : "./Sites/ssl/",
         
         //If and only if a ssl property is set you can use https, else it will fallback to false.
-        //You can in this object specify what the virtual host router should listen, just like the http object.
+        //You can in this object specify what the virtual host router should listen on, just like the http object.
         "https" : {
             
             //By default if the ssl property is set it will listen for https requests on 127.0.0.1:8002
