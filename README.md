@@ -159,7 +159,6 @@ default value if not set.
 
 ##Thanks to
 
-* cluster (LearnBoost) https://github.com/learnboost/cluster
 * http-proxy-server (nodejitsu) https://github.com/nodejitsu/node-http-proxy
 
 ##License
