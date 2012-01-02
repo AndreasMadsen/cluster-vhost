@@ -3,9 +3,10 @@
   "description": "virtual host setup using native cluster",
   "version": "1.0.0",
   "author": "Andreas Madsen <amwebdk@gmail.com>",
-  "contributors" : [
-    { "name": "Andreas Madsen", "email": "amwebdk@gmail.com"}
-  ],
+  "scripts": {
+    "test": "vows test/* --spec"
+  },
+  "main": "./lib/module.js",
   "repository" : {
     "type": "git",
     "url": "git://github.com/AndreasMadsen/cluster-vhost.git"
@@ -18,12 +19,16 @@
     "name"
   ],
   "dependencies": {
-    "http-proxy": ">= 0.8.0",
-    "childtalk": ">= 0.0.1",
-    "configme": ">= 0.0.1"
+    "http-proxy" : ">= 0.8.0",
+    "childtalk"  : ">= 0.0.1",
+    "configme"   : "*"
   },
-  "main": "./lib/setup.js",
+  "devDependencies": {
+    "vows"    : "0.6.x",
+    "request" : "1.9.x"
+  },
+  "license": "GPLv3",
   "engines": {
-    "node": ">= 0.7.x"
+    "node" : ">= 0.7"
   }
 }
