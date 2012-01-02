@@ -12,13 +12,13 @@
 
 ##How to use
 
-**Install:**
+####Install:
 
 ```shell
 npm install cluster-vhost
 ```
 
-**Use:**
+####Use:
 
 ```javascript
 var cluster = require('cluster'),
@@ -37,7 +37,8 @@ vhost.on('error', function (err) {
 cluster.autoFork();
 ```
 
-**Done:**
+####Done:
+
 You can now access your site on `http://example.org:8001`.<br>
 In order to access your site on `http://example.org`, you will need
 to configure your firewall to redirect from port `8001` to port `80`.
