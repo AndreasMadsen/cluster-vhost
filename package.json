@@ -1,10 +1,13 @@
 {
   "name": "cluster-vhost",
-  "description": "virtual host setup using native cluster",
+  "description": "virtual host setup made easy",
   "version": "1.0.0",
   "author": "Andreas Madsen <amwebdk@gmail.com>",
   "scripts": {
-    "test": "vows test/* --spec"
+    "test": "vows test/simple/* --spec --isolate"
+  },
+  "bin": {
+  	"vhost": "./bin/vhost"
   },
   "main": "./lib/module.js",
   "repository" : {
@@ -20,7 +23,6 @@
   ],
   "dependencies": {
     "http-proxy" : ">= 0.8.0",
-    "childtalk"  : ">= 0.0.1",
     "configme"   : "*"
   },
   "devDependencies": {
