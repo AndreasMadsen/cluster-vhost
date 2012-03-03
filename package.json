@@ -22,12 +22,14 @@
     "name"
   ],
   "dependencies": {
-    "http-proxy" : ">= 0.8.0",
+    "http-proxy" : "0.8.x",
+    "immortal"	 : "0.3.x",
+    "thintalk"	 : "0.3.x",
     "configme"   : "*"
   },
   "devDependencies": {
     "vows"    : "0.6.x",
-    "request" : "1.9.x"
+    "request" : "2.9.x"
   },
   "license": "GPLv3",
   "engines": {
