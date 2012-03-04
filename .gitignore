@@ -3,5 +3,8 @@
 *.swp
 *.tmp
 
+# ignore intercom files
+intercom/
+
 # All node modules
 node_modules/
