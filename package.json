@@ -1,11 +1,15 @@
 {
   "name": "cluster-vhost",
-  "description": "virtual host management using cluster",
-  "version": "0.2.5",
+  "description": "virtual host setup made easy",
+  "version": "1.0.0",
   "author": "Andreas Madsen <amwebdk@gmail.com>",
-  "contributors" : [
-    { "name": "Andreas Madsen", "email": "amwebdk@gmail.com"}
-  ],
+  "scripts": {
+    "test": "vows test/simple/* --spec --isolate"
+  },
+  "bin": {
+  	"vhost": "./bin/vhost"
+  },
+  "main": "./lib/module.js",
   "repository" : {
     "type": "git",
     "url": "git://github.com/AndreasMadsen/cluster-vhost.git"
@@ -18,16 +22,17 @@
     "name"
   ],
   "dependencies": {
-    "http-proxy": ">= 0.7.3"
+    "http-proxy" : "0.8.x",
+    "immortal"	 : "0.3.x",
+    "thintalk"	 : "0.3.x",
+    "configme"   : "*"
   },
   "devDependencies": {
-    "vows": ">= 0.5.11"
+    "vows"    : "0.6.x",
+    "request" : "2.9.x"
   },
-  "main": "./lib/plugin.js",
-  "scripts": {
-    "test": "vows test/* --spec"
-  },
+  "license": "GPLv3",
   "engines": {
-    "node": "0.4.x"
+    "node" : ">= 0.7"
   }
 }

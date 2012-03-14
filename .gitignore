@@ -3,12 +3,8 @@
 *.swp
 *.tmp
 
-# Log files
-npm-debug.log
-test/*.log
+# ignore intercom files
+intercom/
 
 # All node modules
 node_modules/
-
-# All tcp sockets
-sock/
