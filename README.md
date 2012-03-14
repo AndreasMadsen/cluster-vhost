@@ -11,7 +11,6 @@
  - Ridiculously easy to use
  - Support http to http proxy
  - Support https to http proxy
- - transparent proxy remoteAddress
 
 ##How to use
 
