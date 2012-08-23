@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/AndreasMadsen/cluster-vhost.png)](http://travis-ci.org/AndreasMadsen/cluster-vhost)
 #cluster-vhost
 
 > cluster-vhost is a module there allow you to use as many virtual host domains
