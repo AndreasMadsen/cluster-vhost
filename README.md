@@ -7,6 +7,8 @@
 >
 > This module require node 0.7.0-pre or higher since the 0.6.0 cluster module isn't sophisticated enough.
 
+**No longer maintained. Pull requests will be reviewed and ownership is given if interest is shown.**
+
 ## Features
  - Ridiculously easy to use
  - Support http to http proxy
